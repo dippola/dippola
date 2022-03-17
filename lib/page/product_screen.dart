@@ -67,6 +67,29 @@ class DesktopProductList extends StatelessWidget {
             Expanded(
               child: DesktopProductItem(
                 textSize: 17.0,
+                title: '큐톡',
+                img: ClipRRect(
+                  borderRadius: BorderRadius.circular(30.0),
+                  child: Image.asset(
+                    'images/githubicon.png',
+                    width: size.width * 0.1,
+                  ),
+                ),
+                text:
+                    '큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 ',
+                onPressed: () {
+                  LaunchUrl._launchURLRelaxTour();
+                },
+                privacyPressed: () {
+                  Navigator.pushNamed(
+                      context, '/product/cuetalk');
+                },
+              ),
+            ),
+            SizedBox(width: 30.0),
+            Expanded(
+              child: DesktopProductItem(
+                textSize: 17.0,
                 title: 'Relax Tour',
                 img: ClipRRect(
                   borderRadius: BorderRadius.circular(30.0),
@@ -76,7 +99,7 @@ class DesktopProductList extends StatelessWidget {
                   ),
                 ),
                 text:
-                    'Are you not satisfied with your relaxation?\n\ndo you want your break time to be more efficient?\nThe solution is in this app Relax Tour',
+                'Are you not satisfied with your relaxation?\n\ndo you want your break time to be more efficient?\nThe solution is in this app Relax Tour',
                 onPressed: () {
                   LaunchUrl._launchURLRelaxTour();
                 },
@@ -86,7 +109,11 @@ class DesktopProductList extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(width: 30.0),
+          ],
+        ),
+        SizedBox(height: 20.0),
+        Row(
+          children: [
             Expanded(
               child: DesktopProductItem(
                 textSize: 15.0,
@@ -99,7 +126,7 @@ class DesktopProductList extends StatelessWidget {
                   ),
                 ),
                 text:
-                    '국민가수 나훈아 노래를 인기순으로 볼 수 있습니다.\n나훈아 팬분들의 연령을 감안해 최대한 간단한 조작법으로 재작되었습니다.\n나훈아의 모든 노래를 영상과 함께 무료로 감상하세요!',
+                '국민가수 나훈아 노래를 인기순으로 볼 수 있습니다.\n나훈아 팬분들의 연령을 감안해 최대한 간단한 조작법으로 재작되었습니다.\n나훈아의 모든 노래를 영상과 함께 무료로 감상하세요!',
                 onPressed: () {
                   LaunchUrl._launchURLNha();
                 },
@@ -108,11 +135,7 @@ class DesktopProductList extends StatelessWidget {
                 },
               ),
             ),
-          ],
-        ),
-        SizedBox(height: 20.0),
-        Row(
-          children: [
+            SizedBox(width: 30.0),
             Expanded(
               child: DesktopProductItem(
                 textSize: 15.0,
@@ -134,12 +157,6 @@ class DesktopProductList extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(width: 30.0),
-            Expanded(
-              child: Container(
-                height: 300,
-              ),
-            ),
           ],
         ),
       ],
@@ -154,6 +171,27 @@ class TabProductList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        TabProductItem(
+          title: '큐톡',
+          img: ClipRRect(
+            borderRadius: BorderRadius.circular(30.0),
+            child: Image.asset(
+              'images/githubicon.png',
+              width: 130,
+            ),
+          ),
+          text:
+          '큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 ',
+          textSize: 14.0,
+          onPressed: () {
+            LaunchUrl._launchURLNha();
+          },
+          privacyPressed: () {
+            Navigator.pushNamed(
+                context, '/product/cuetalk');
+          },
+        ),
+        SizedBox(height: 30.0),
         TabProductItem(
           title: 'Relax Tour',
           img: ClipRRect(
@@ -226,6 +264,22 @@ class MobileProductList extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Column(
       children: [
+        MobileProductItem(
+          img:
+          Image.asset('images/githubicon.png', width: size.width * 0.27),
+          title: '큐톡',
+          text:
+          '큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 ',
+          size: size,
+          onPressed: () {
+            LaunchUrl._launchURLRelaxTour();
+          },
+          privacyPressed: () {
+            Navigator.pushNamed(
+                context, '/product/cuetalk');
+          },
+        ),
+        SizedBox(height: 20.0),
         MobileProductItem(
           img:
               Image.asset('images/relaxtouricon.png', width: size.width * 0.27),

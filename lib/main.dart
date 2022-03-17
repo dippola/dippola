@@ -1,3 +1,4 @@
+import 'package:dippola/detail/cuetalkapp_detail.dart';
 import 'package:dippola/page/about_screen.dart';
 import 'package:dippola/page/contact_screen.dart';
 import 'package:dippola/page/home_sceen.dart';
@@ -27,7 +28,8 @@ class MyDevWeb extends StatelessWidget {
         "/product": (context) => Product(),
         "/contact": (context) => ContactUs(),
         "/product/relax_tour_privacy_policy": (context) => PrivacyPolicyRelaxTour(),
-        "/product/nha_privacy_policy": (context) => PrivacyPolicyNha()
+        "/product/nha_privacy_policy": (context) => PrivacyPolicyNha(),
+        "/product/cuetalk": (context) => DetailCueTalk(),
       },
     );
   }
