@@ -75,39 +75,44 @@ class DesktopProductList extends StatelessWidget {
                     width: size.width * 0.1,
                   ),
                 ),
-                text:
-                    '큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 ',
-                onPressed: () {
-                  LaunchUrl._launchURLRelaxTour();
+                text: '큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 ',
+                onPressedPlaystore: () {
+                  null;
                 },
                 privacyPressed: () {
-                  Navigator.pushNamed(
-                      context, '/product/cuetalk');
+                  null;
+                },
+                isViewMore: true,
+                onPressedViewMore: () {
+                  Navigator.pushNamed(context, '/product/cuetalk');
                 },
               ),
             ),
             SizedBox(width: 30.0),
             Expanded(
               child: DesktopProductItem(
-                textSize: 17.0,
-                title: 'Relax Tour',
-                img: ClipRRect(
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: Image.asset(
-                    'images/relaxtouricon.png',
-                    width: size.width * 0.1,
+                  textSize: 17.0,
+                  title: 'Relax Tour',
+                  img: ClipRRect(
+                    borderRadius: BorderRadius.circular(30.0),
+                    child: Image.asset(
+                      'images/relaxtouricon.png',
+                      width: size.width * 0.1,
+                    ),
                   ),
-                ),
-                text:
-                'Are you not satisfied with your relaxation?\n\ndo you want your break time to be more efficient?\nThe solution is in this app Relax Tour',
-                onPressed: () {
-                  LaunchUrl._launchURLRelaxTour();
-                },
-                privacyPressed: () {
-                  Navigator.pushNamed(
-                      context, '/product/relax_tour_privacy_policy');
-                },
-              ),
+                  text:
+                      'Are you not satisfied with your relaxation?\n\ndo you want your break time to be more efficient?\nThe solution is in this app Relax Tour',
+                  onPressedPlaystore: () {
+                    LaunchUrl._launchURLRelaxTour();
+                  },
+                  privacyPressed: () {
+                    Navigator.pushNamed(
+                        context, '/product/relax_tour_privacy_policy');
+                  },
+                  isViewMore: false,
+                  onPressedViewMore: () {
+                    null;
+                  }),
             ),
           ],
         ),
@@ -126,13 +131,15 @@ class DesktopProductList extends StatelessWidget {
                   ),
                 ),
                 text:
-                '국민가수 나훈아 노래를 인기순으로 볼 수 있습니다.\n나훈아 팬분들의 연령을 감안해 최대한 간단한 조작법으로 재작되었습니다.\n나훈아의 모든 노래를 영상과 함께 무료로 감상하세요!',
-                onPressed: () {
+                    '국민가수 나훈아 노래를 인기순으로 볼 수 있습니다.\n나훈아 팬분들의 연령을 감안해 최대한 간단한 조작법으로 재작되었습니다.\n나훈아의 모든 노래를 영상과 함께 무료로 감상하세요!',
+                onPressedPlaystore: () {
                   LaunchUrl._launchURLNha();
                 },
                 privacyPressed: () {
                   Navigator.pushNamed(context, '/product/nha_privacy_policy');
                 },
+                isViewMore: false,
+                onPressedViewMore: () {},
               ),
             ),
             SizedBox(width: 30.0),
@@ -149,12 +156,14 @@ class DesktopProductList extends StatelessWidget {
                 ),
                 text:
                     '말 못할 고민이 있을 때, 중요한 결정을 해야할 때, 결정을 앞두고 망설이고 있을 때\n해결의 책은 당신의 고민을 해결 할 수 있게 도와줍니다.\n지금 해결의 책을 펼쳐보세요!',
-                onPressed: () {
+                onPressedPlaystore: () {
                   LaunchUrl._launchURLBook();
                 },
                 privacyPressed: () {
                   null;
                 },
+                isViewMore: false,
+                onPressedViewMore: () {},
               ),
             ),
           ],
@@ -180,15 +189,17 @@ class TabProductList extends StatelessWidget {
               width: 130,
             ),
           ),
-          text:
-          '큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 ',
+          text: '큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 ',
           textSize: 14.0,
-          onPressed: () {
-            LaunchUrl._launchURLNha();
+          onPressedPlaystore: () {
+            null;
           },
           privacyPressed: () {
-            Navigator.pushNamed(
-                context, '/product/cuetalk');
+            null;
+          },
+          isViewMore: true,
+          onPressedViewMore: () {
+            Navigator.pushNamed(context, '/product/cuetalk');
           },
         ),
         SizedBox(height: 30.0),
@@ -204,12 +215,14 @@ class TabProductList extends StatelessWidget {
           text:
               'Are you not satisfied with your relaxation?\n\ndo you want your break time to be more efficient?\nThe solution is in this app Relax Tour',
           textSize: 17.0,
-          onPressed: () {
+          onPressedPlaystore: () {
             LaunchUrl._launchURLRelaxTour();
           },
           privacyPressed: () {
             Navigator.pushNamed(context, '/product/relax_tour_privacy_policy');
           },
+          isViewMore: false,
+          onPressedViewMore: () {null;},
         ),
         SizedBox(height: 30.0),
         TabProductItem(
@@ -224,12 +237,14 @@ class TabProductList extends StatelessWidget {
           text:
               '국민가수 나훈아 노래를 인기순으로 볼 수 있습니다.\n\n나훈아 팬분들의 연령을 감안해 최대한 간단한 조작법으로 재작되었습니다.\n나훈아의 모든 노래를 영상과 함께 무료로 감상하세요!',
           textSize: 14.0,
-          onPressed: () {
+          onPressedPlaystore: () {
             LaunchUrl._launchURLNha();
           },
           privacyPressed: () {
             Navigator.pushNamed(context, '/product/nha_privacy_policy');
           },
+          isViewMore: false,
+          onPressedViewMore: () {null;},
         ),
         SizedBox(height: 30.0),
         TabProductItem(
@@ -244,12 +259,14 @@ class TabProductList extends StatelessWidget {
           text:
               '말 못할 고민이 있을 때, 중요한 결정을 해야할 때, 결정을 앞두고 망설이고 있을 때\n해결의 책은 당신의 고민을 해결 할 수 있게 도와줍니다.\n지금 해결의 책을 펼쳐보세요!',
           textSize: 14.0,
-          onPressed: () {
-            LaunchUrl._launchURLNha();
+          onPressedPlaystore: () {
+            LaunchUrl._launchURLBook();
           },
           privacyPressed: () {
             null;
           },
+          isViewMore: false,
+          onPressedViewMore: () {null;},
         ),
       ],
     );
@@ -265,18 +282,19 @@ class MobileProductList extends StatelessWidget {
     return Column(
       children: [
         MobileProductItem(
-          img:
-          Image.asset('images/githubicon.png', width: size.width * 0.27),
+          img: Image.asset('images/githubicon.png', width: size.width * 0.27),
           title: '큐톡',
-          text:
-          '큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 ',
+          text: '큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 큐톡설명 ',
           size: size,
-          onPressed: () {
-            LaunchUrl._launchURLRelaxTour();
+          onPressedPlaystore: () {
+            null;
           },
           privacyPressed: () {
-            Navigator.pushNamed(
-                context, '/product/cuetalk');
+
+          },
+          isViewMore: true,
+          onPressedViewMore: () {
+            Navigator.pushNamed(context, '/product/cuetalk');
           },
         ),
         SizedBox(height: 20.0),
@@ -287,12 +305,14 @@ class MobileProductList extends StatelessWidget {
           text:
               'Are you not satisfied with your relaxation?\n\ndo you want your break time to be more efficient?\nThe solution is in this app Relax Tour',
           size: size,
-          onPressed: () {
+          onPressedPlaystore: () {
             LaunchUrl._launchURLRelaxTour();
           },
           privacyPressed: () {
             Navigator.pushNamed(context, '/product/relax_tour_privacy_policy');
           },
+          isViewMore: false,
+          onPressedViewMore: () {null;},
         ),
         SizedBox(height: 20.0),
         MobileProductItem(
@@ -301,12 +321,14 @@ class MobileProductList extends StatelessWidget {
           text:
               '국민가수 나훈아 노래를 인기순으로 볼 수 있습니다.\n\n나훈아 팬분들의 연령을 감안해 최대한 간단한 조작법으로 재작되었습니다.\n나훈아의 모든 노래를 영상과 함께 무료로 감상하세요!',
           size: size,
-          onPressed: () {
+          onPressedPlaystore: () {
             LaunchUrl._launchURLNha();
           },
           privacyPressed: () {
             Navigator.pushNamed(context, '/product/nha_privacy_policy');
           },
+          isViewMore: false,
+          onPressedViewMore: () {null;},
         ),
         SizedBox(height: 20.0),
         MobileProductItem(
@@ -315,12 +337,14 @@ class MobileProductList extends StatelessWidget {
           text:
               '말 못할 고민이 있을 때, 중요한 결정을 해야할 때, 결정을 앞두고 망설이고 있을 때\n해결의 책은 당신의 고민을 해결 할 수 있게 도와줍니다.\n지금 해결의 책을 펼쳐보세요!',
           size: size,
-          onPressed: () {
-            LaunchUrl._launchURLNha();
+          onPressedPlaystore: () {
+            LaunchUrl._launchURLBook();
           },
           privacyPressed: () {
             null;
           },
+          isViewMore: false,
+          onPressedViewMore: () {null;},
         )
       ],
     );
@@ -334,16 +358,20 @@ class DesktopProductItem extends StatelessWidget {
       required this.img,
       required this.text,
       required this.textSize,
-      required this.onPressed,
-      required this.privacyPressed})
+      required this.onPressedPlaystore,
+      required this.privacyPressed,
+      required this.isViewMore,
+      required this.onPressedViewMore})
       : super(key: key);
 
   final String title;
   final Widget img;
   final String text;
   final double textSize;
-  final GestureTapCallback onPressed;
+  final GestureTapCallback onPressedPlaystore;
   final GestureTapCallback privacyPressed;
+  final bool isViewMore;
+  final GestureTapCallback onPressedViewMore;
 
   @override
   Widget build(BuildContext context) {
@@ -374,7 +402,15 @@ class DesktopProductItem extends StatelessWidget {
                         style: TextStyle(
                             color: Color.fromRGBO(5, 5, 100, 1.0),
                             fontSize: 20.0,
-                            fontWeight: FontWeight.bold))
+                            fontWeight: FontWeight.bold)),
+                    SizedBox(
+                      height: 45.0,
+                      width: 45.0,
+                      child: IconButton(
+                        onPressed: onPressedPlaystore,
+                        icon: Image.asset('images/playstoreicon.png'),
+                      ),
+                    ),
                   ],
                 ),
                 Expanded(
@@ -394,12 +430,15 @@ class DesktopProductItem extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            ElevatedButton(
-                              onPressed: onPressed,
-                              child: Text('VIEW MORE'),
-                              style: ElevatedButton.styleFrom(
-                                  primary: Color.fromRGBO(5, 5, 100, 1.0)),
-                            ),
+                            isViewMore
+                                ? ElevatedButton(
+                                    onPressed: onPressedViewMore,
+                                    child: Text('VIEW MORE'),
+                                    style: ElevatedButton.styleFrom(
+                                        primary:
+                                            Color.fromRGBO(5, 5, 100, 1.0)),
+                                  )
+                                : Opacity(opacity: 0.0),
                           ],
                         )
                       ],
@@ -423,27 +462,31 @@ class DesktopProductItem extends StatelessWidget {
 }
 
 class TabProductItem extends StatelessWidget {
-  const TabProductItem(
-      {Key? key,
-      required this.title,
-      required this.img,
-      required this.text,
-      required this.textSize,
-      required this.onPressed,
-      required this.privacyPressed})
-      : super(key: key);
+  const TabProductItem({
+    Key? key,
+    required this.title,
+    required this.img,
+    required this.text,
+    required this.textSize,
+    required this.onPressedPlaystore,
+    required this.privacyPressed,
+    required this.isViewMore,
+    required this.onPressedViewMore,
+  }) : super(key: key);
 
   final String title;
   final Widget img;
   final String text;
   final double textSize;
-  final GestureTapCallback onPressed;
+  final GestureTapCallback onPressedPlaystore;
   final GestureTapCallback privacyPressed;
+  final bool isViewMore;
+  final GestureTapCallback onPressedViewMore;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 230,
+      height: 275,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
           color: Colors.white,
@@ -469,7 +512,15 @@ class TabProductItem extends StatelessWidget {
                         style: TextStyle(
                             color: Color.fromRGBO(5, 5, 100, 1.0),
                             fontSize: 20.0,
-                            fontWeight: FontWeight.bold))
+                            fontWeight: FontWeight.bold)),
+                    SizedBox(
+                      height: 45.0,
+                      width: 45.0,
+                      child: IconButton(
+                        onPressed: onPressedPlaystore,
+                        icon: Image.asset('images/playstoreicon.png'),
+                      ),
+                    ),
                   ],
                 ),
                 Expanded(
@@ -489,12 +540,12 @@ class TabProductItem extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            ElevatedButton(
-                              onPressed: onPressed,
+                            isViewMore ? ElevatedButton(
+                              onPressed: onPressedViewMore,
                               child: Text('VIEW MORE'),
                               style: ElevatedButton.styleFrom(
                                   primary: Color.fromRGBO(5, 5, 100, 1.0)),
-                            ),
+                            ) : Opacity(opacity: 0.0),
                           ],
                         )
                       ],
@@ -524,16 +575,20 @@ class MobileProductItem extends StatelessWidget {
       required this.title,
       required this.text,
       required this.size,
-      required this.onPressed,
-      required this.privacyPressed})
+      required this.onPressedPlaystore,
+      required this.privacyPressed,
+      required this.isViewMore,
+      required this.onPressedViewMore,})
       : super(key: key);
 
   final Widget img;
   final String title;
   final String text;
   final Size size;
-  final GestureTapCallback onPressed;
+  final GestureTapCallback onPressedPlaystore;
   final GestureTapCallback privacyPressed;
+  final bool isViewMore;
+  final GestureTapCallback onPressedViewMore;
 
   @override
   Widget build(BuildContext context) {
@@ -563,6 +618,14 @@ class MobileProductItem extends StatelessWidget {
                 fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
+          SizedBox(
+            height: 45.0,
+            width: 45.0,
+            child: IconButton(
+              onPressed: onPressedPlaystore,
+              icon: Image.asset('images/playstoreicon.png'),
+            ),
+          ),
           SizedBox(height: 20.0),
           SelectableText(
             text,
@@ -570,12 +633,13 @@ class MobileProductItem extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 20.0),
+          isViewMore ?
           ElevatedButton(
-            onPressed: onPressed,
+            onPressed: onPressedViewMore,
             child: Text('VIEW MORE'),
             style: ElevatedButton.styleFrom(
                 primary: Color.fromRGBO(5, 5, 100, 1.0)),
-          ),
+          ) : Opacity(opacity: 0.0),
           SizedBox(height: 20.0),
           TextButton(onPressed: privacyPressed, child: Text('Privacy Policy'))
         ],

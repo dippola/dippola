@@ -4,6 +4,7 @@ import 'package:dippola/get_size.dart';
 import 'package:dippola/navi_item.dart';
 import 'package:dippola/privacy_policy/privacy_policy_text.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailCueTalk extends StatelessWidget {
   const DetailCueTalk({Key? key}) : super(key: key);
@@ -78,7 +79,12 @@ class DetailCueTalkDesktop extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 40.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [SelectableText(CueTalkText.text, style: TextStyle(height: 1.5),)],
+                children: [
+                  SelectableText(
+                    CueTalkText.text,
+                    style: TextStyle(height: 1.5),
+                  )
+                ],
               ),
             ),
           ],
@@ -87,3 +93,5 @@ class DetailCueTalkDesktop extends StatelessWidget {
     );
   }
 }
+
+

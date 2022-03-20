@@ -179,7 +179,7 @@ class ContactUsScreen extends StatelessWidget {
       openSnackBar(context, 'Please check you body');
     } else {
       openEmail(
-          toEmail: 'develiny9@gmail.com',
+          toEmail: 'dippolas@gmail.com',
           subject: 'Dippola website contact to $name',
           body: 'email: $email \n $body');
     }
