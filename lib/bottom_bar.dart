@@ -171,6 +171,14 @@ class AboutDippola extends StatelessWidget {
               black("dippolas@gmail.com"),
             ],
           ),
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              grey("fax: "),
+              black("032-232-0999"),
+            ],
+          ),
           SizedBox(height: 30.0)
         ],
       ),
@@ -203,7 +211,7 @@ class AboutDippola extends StatelessWidget {
         SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [grey("주소: "), black("인천시 서구 검단로744번2길 404호")],
+          children: [grey("주소: "), black("인천시 서구 검단로744번2길")],
         ),
         SizedBox(height: 5),
         Row(
@@ -219,6 +227,14 @@ class AboutDippola extends StatelessWidget {
           children: [
             grey("이메일: "),
             black("dippolas@gmail.com"),
+          ],
+        ),
+        SizedBox(height: 5),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            grey("fax: "),
+            black("032-232-0999"),
           ],
         ),
         SizedBox(height: 20.0)
