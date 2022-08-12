@@ -158,7 +158,7 @@ class AboutDippola extends StatelessWidget {
               grey("대표: "),
               black("김민준"),
               grey("   |   주소: "),
-              black("인천시 서구 검단로744번2길 404호")
+              black("인천시 서구 가현로97번길6")
             ],
           ),
           SizedBox(height: 10),
@@ -211,7 +211,7 @@ class AboutDippola extends StatelessWidget {
         SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [grey("주소: "), black("인천시 서구 검단로744번2길")],
+          children: [grey("주소: "), black("인천시 서구 가현로97번길6")],
         ),
         SizedBox(height: 5),
         Row(
