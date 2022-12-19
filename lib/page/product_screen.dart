@@ -651,7 +651,7 @@ class MobileProductItem extends StatelessWidget {
 class LaunchUrl {
   static void _launchURLRelaxTour() async {
     String _url =
-        'https://play.google.com/store/apps/details?id=com.tistory.starcue.bgnoise';
+        'https://play.google.com/store/apps/details?id=com.dippola.relaxtour';
     await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
   }
 
