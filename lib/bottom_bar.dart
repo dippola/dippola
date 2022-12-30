@@ -166,7 +166,7 @@ class AboutDippola extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               grey("대표전화: "),
-              black("010-3339-3988"),
+              black("070-8064-7420"),
               grey("   |   이메일: "),
               black("dippolas@gmail.com"),
             ],
