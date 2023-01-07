@@ -5,6 +5,7 @@ import 'package:dippola/page/home_sceen.dart';
 import 'package:dippola/page/product_screen.dart';
 import 'package:dippola/privacy_policy/privacy_policy_nha.dart';
 import 'package:dippola/privacy_policy/privacy_policy_relax_tour.dart';
+import 'package:dippola/terms_and_conditions/terms_and_conditions_relax_tour.dart';
 import 'package:flutter/material.dart';
 import 'package:url_strategy/url_strategy.dart';
 
@@ -30,6 +31,7 @@ class MyDevWeb extends StatelessWidget {
         "/product/relax_tour_privacy_policy": (context) => PrivacyPolicyRelaxTour(),
         "/product/nha_privacy_policy": (context) => PrivacyPolicyNha(),
         "/product/cuetalk": (context) => DetailCueTalk(),
+        "/project/relax_tour_terms_and_conditions": (context) => TermsAndConditionsRelaxTour(),
       },
     );
   }
