@@ -31,7 +31,7 @@ class MyDevWeb extends StatelessWidget {
         "/product/relax_tour_privacy_policy": (context) => PrivacyPolicyRelaxTour(),
         "/product/nha_privacy_policy": (context) => PrivacyPolicyNha(),
         "/product/cuetalk": (context) => DetailCueTalk(),
-        "/project/relax_tour_terms_and_conditions": (context) => TermsAndConditionsRelaxTour(),
+        "/product/relax_tour_terms_and_conditions": (context) => TermsAndConditionsRelaxTour(),
       },
     );
   }
