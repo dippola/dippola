@@ -30,9 +30,9 @@ class MyDevWeb extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => HomePage(),
-        "/about": (context) => AboutUs(),
+        "/about": (context) => AboutPage(),
         "/projects": (context) => Product(),
-        "/contact": (context) => ContactUs(),
+        "/contact": (context) => ContactPage(),
         "/projects/relaxtour/private_policy": (context) => PrivatePolicyPage(),//1
         "/projects/pjhouse/private_policy": (context) => PrivatePolicyPage(),//2
         "/projects/nha/private_policy": (context) => PrivatePolicyPage(),//3

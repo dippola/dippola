@@ -5,8 +5,10 @@ import 'package:dippola/navi_item.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ContactUs extends StatelessWidget {
-  const ContactUs({Key? key}) : super(key: key);
+import '../style.dart';
+
+class ContactPage extends StatelessWidget {
+  const ContactPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,25 @@ class ContactUs extends StatelessWidget {
     );
   }
 }
+
+class Contact1 extends StatelessWidget {
+  const Contact1({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double w = DeviceSize.getWidth(context);
+    return Container(
+
+    );
+  }
+
+  Widget Contact1Desktop(double w) {
+    return Container(
+      width: w*0.7,
+    );
+  }
+}
+
 
 class ContactUsScreen extends StatelessWidget {
   const ContactUsScreen({Key? key}) : super(key: key);
