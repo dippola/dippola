@@ -15,8 +15,8 @@ class NavItem extends StatelessWidget {
             children: [
               SizedBox(height: 20.0),
               NavItems(title: 'Home', tapEvent: () {
-                if (ModalRoute.of(context)!.settings.name != '/home') {
-                  Navigator.pushNamed(context, '/home');
+                if (ModalRoute.of(context)!.settings.name != '/') {
+                  Navigator.pushNamed(context, '/');
                 }
               }),
               SizedBox(height: 20.0),
@@ -26,9 +26,9 @@ class NavItem extends StatelessWidget {
                 }
               }),
               SizedBox(height: 20.0),
-              NavItems(title: 'Product', tapEvent: () {
-                if (ModalRoute.of(context)!.settings.name != '/product') {
-                  Navigator.pushNamed(context, '/product');
+              NavItems(title: 'Projects', tapEvent: () {
+                if (ModalRoute.of(context)!.settings.name != '/projects') {
+                  Navigator.pushNamed(context, '/projects');
                 }
               }),
               SizedBox(height: 20.0),
@@ -57,7 +57,7 @@ class NavItems extends StatelessWidget {
     return InkWell(
       onTap: tapEvent,
       hoverColor: Colors.blueGrey, //transparent
-      child: SelectableText(
+      child: Text(
         title,
         style: TextStyle(fontWeight: FontWeight.w300),
       ),

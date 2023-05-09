@@ -1,17 +1,22 @@
-import 'package:dippola/detail/cuetalkapp_detail.dart';
-import 'package:dippola/page/about_screen.dart';
-import 'package:dippola/page/contact_screen.dart';
-import 'package:dippola/page/home_sceen.dart';
-import 'package:dippola/page/product_screen.dart';
-import 'package:dippola/privacy_policy/privacy_policy_nha.dart';
-import 'package:dippola/privacy_policy/privacy_policy_relax_tour.dart';
-import 'package:dippola/terms_and_conditions/terms_and_conditions_relax_tour.dart';
+import 'package:dippola/page/about.dart';
+import 'package:dippola/page/contact.dart';
+import 'package:dippola/page/home.dart';
+import 'package:dippola/page/projects.dart';
+import 'package:dippola/page/terms_and_conditions.dart';
 import 'package:flutter/material.dart';
 import 'package:url_strategy/url_strategy.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:dippola/page/private_policy.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() {
-  setPathUrlStrategy();
-  runApp(MyDevWeb());
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const MyDevWeb());
 }
 
 class MyDevWeb extends StatelessWidget {
@@ -22,16 +27,24 @@ class MyDevWeb extends StatelessWidget {
     return MaterialApp(
       title: 'Dippola',
       theme: ThemeData(primaryColor: Colors.indigo),
-      initialRoute: "/home",
+      initialRoute: "/",
       routes: {
-        "/home": (context) => HomePage(),
+        "/": (context) => HomePage(),
         "/about": (context) => AboutUs(),
-        "/product": (context) => Product(),
+        "/projects": (context) => Product(),
         "/contact": (context) => ContactUs(),
-        "/product/relax_tour_privacy_policy": (context) => PrivacyPolicyRelaxTour(),
-        "/product/nha_privacy_policy": (context) => PrivacyPolicyNha(),
-        "/product/cuetalk": (context) => DetailCueTalk(),
-        "/product/relax_tour_terms_and_conditions": (context) => TermsAndConditionsRelaxTour(),
+        "/projects/relaxtour/private_policy": (context) => PrivatePolicyPage(),//1
+        "/projects/pjhouse/private_policy": (context) => PrivatePolicyPage(),//2
+        "/projects/nha/private_policy": (context) => PrivatePolicyPage(),//3
+        "/projects/solution/private_policy": (context) => PrivatePolicyPage(),//4
+        "/projects/relaxtour/terms_and_conditions": (context) => TacPage(),
+
+
+
+        // "/projects/relax_tour_privacy_policy": (context) => PrivacyPolicyRelaxTour(),
+        // "/projects/nha_privacy_policy": (context) => PrivacyPolicyNha(),
+        // "/projects/cuetalk": (context) => DetailCueTalk(),
+        // "/projects/relax_tour_terms_and_conditions": (context) => TermsAndConditionsRelaxTour(),
       },
     );
   }

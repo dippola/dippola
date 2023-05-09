@@ -1,6 +1,8 @@
+import 'package:dippola/style.dart';
 import 'package:flutter/material.dart';
 import 'package:dippola/get_size.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -9,166 +11,195 @@ class BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     // return (!isMobile(context) ? DesktopBottom() : MobileBottom());
     return Column(
-      children: [
-        !isMobile(context) ? DesktopBottom() : MobileBottom(),
-        AboutDippola()
-      ],
+      children: [Bottom1(), Bottom2()],
     );
   }
 }
 
-class DesktopBottom extends StatelessWidget {
-  const DesktopBottom({Key? key}) : super(key: key);
+class Bottom1 extends StatelessWidget {
+  const Bottom1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 30, horizontal: 40),
-      child: Row(
-        children: [
-          Expanded(
-            flex: 1,
-            child: TextButton(
-              onPressed: () {
-                if (ModalRoute.of(context)!.settings.name != '/contact') {
-                  Navigator.pushNamed(context, '/contact');
-                }
-              },
-              child: Text('dippolas@gmail.com'),
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+    return isMobile(context) ? Bottom1Mobile(context) : Bottom1DesktopTab(context);
+  }
+
+  Widget Bottom1DesktopTab(BuildContext context) {
+    double w = DeviceSize.getWidth(context);
+    return Padding(
+      // padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 100.0),
+      padding: EdgeInsets.fromLTRB(50.0, 50.0, 50.0, 20.0),
+      child: Container(
+        width: isDesktop(context) ? w*0.6 : isTab(context) ? w*0.8 : w*0.9,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                BottomItem(
-                  title: 'bottom1',
-                  tapEvent: () {},
-                ),
-                SizedBox(width: 10),
-                BottomItem(
-                  title: 'bottom2',
-                  tapEvent: () {},
-                ),
-                SizedBox(width: 10),
-                BottomItem(
-                  title: 'bottom3',
-                  tapEvent: () {},
-                )
+                TextTitle('Contact Dippola'),
+                TextButtonNormal(dippolaEmail, () {}),
+                TextButtonNormal(dippolaPhoneNumber, () {_callPhoneNumber();}),
               ],
             ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class MobileBottom extends StatelessWidget {
-  const MobileBottom({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-      width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(height: 15),
-          BottomItem(
-            title: 'bottom11',
-            tapEvent: () {},
-          ),
-          SizedBox(height: 10),
-          BottomItem(
-            title: 'bottom22',
-            tapEvent: () {},
-          ),
-          SizedBox(height: 10),
-          BottomItem(
-            title: 'bottom33',
-            tapEvent: () {},
-          ),
-          SizedBox(height: 10),
-          TextButton(
-            onPressed: () {
-              if (ModalRoute.of(context)!.settings.name != '/contact') {
-                Navigator.pushNamed(context, '/contact');
-              }
-            },
-            child: Text('develiny9@gmail.com'),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class BottomItem extends StatelessWidget {
-  const BottomItem({Key? key, required this.title, required this.tapEvent})
-      : super(key: key);
-
-  final String title;
-  final GestureTapCallback tapEvent;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: tapEvent,
-      hoverColor: Colors.transparent,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        child: Text(
-          title,
-          style: TextStyle(color: Colors.black, fontSize: 12),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextTitle('Info'),
+                TextButtonNormal('Home', () {
+                  if (ModalRoute.of(context)!.settings.name != '/') {
+                    Navigator.pushNamed(context, '/');
+                  }
+                }),
+                TextButtonNormal('About', () {
+                  if (ModalRoute.of(context)!.settings.name != '/about') {
+                    Navigator.pushNamed(context, '/about');
+                  }
+                }),
+                TextButtonNormal('Projects', () {
+                  if (ModalRoute.of(context)!.settings.name != '/projects') {
+                    Navigator.pushNamed(context, '/projects');
+                  }
+                }),
+                TextButtonNormal('Contact', () {
+                  if (ModalRoute.of(context)!.settings.name != '/contact') {
+                    Navigator.pushNamed(context, '/contact');
+                  }
+                }),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextTitle('Projects'),
+                TextButtonNormal('Relax Tour', () {}),
+                TextButtonNormal('나훈아 노래모음', () {}),
+                TextButtonNormal('해결의 책', () {}),
+              ],
+            )
+          ],
         ),
       ),
     );
   }
+
+  Widget Bottom1Mobile(BuildContext context) {
+    double w = DeviceSize.getWidth(context);
+    return Padding(
+      // padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 100.0),
+      padding: EdgeInsets.fromLTRB(50.0, 30.0, 50.0, 20.0),
+      child: Container(
+        width: isDesktop(context) ? w*0.6 : isTab(context) ? w*0.8 : w*0.9,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                TextTitle('Contact Dippola'),
+                TextButtonNormal(dippolaEmail, () {}),
+                TextButtonNormal(dippolaPhoneNumber, () {_callPhoneNumber();}),
+              ],
+            ),
+            SizedBox(height: 15.0),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                TextTitle('Info'),
+                TextButtonNormal('Home', () {
+                  if (ModalRoute.of(context)!.settings.name != '/') {
+                    Navigator.pushNamed(context, '/');
+                  }
+                }),
+                TextButtonNormal('About', () {
+                  if (ModalRoute.of(context)!.settings.name != '/about') {
+                    Navigator.pushNamed(context, '/about');
+                  }
+                }),
+                TextButtonNormal('Projects', () {
+                  if (ModalRoute.of(context)!.settings.name != '/projects') {
+                    Navigator.pushNamed(context, '/projects');
+                  }
+                }),
+                TextButtonNormal('Contact', () {
+                  if (ModalRoute.of(context)!.settings.name != '/contact') {
+                    Navigator.pushNamed(context, '/contact');
+                  }
+                }),
+              ],
+            ),
+            SizedBox(height: 15.0),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                TextTitle('Projects'),
+                TextButtonNormal('Relax Tour', () {}),
+                TextButtonNormal('나훈아 노래모음', () {}),
+                TextButtonNormal('해결의 책', () {}),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget TextTitle(String text) {
+    return Text(
+      text,
+      style: GoogleFonts.kanit(color: main1HighLightColor, fontSize: 16.0),
+    );
+  }
+
+  Widget TextButtonNormal(String text, GestureTapCallback onPressed) {
+    return TextButton(
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: GoogleFonts.kanit(fontSize: 16.0, color: Colors.black87),
+      ),
+      style: TextButton.styleFrom(padding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 10.0), minimumSize: Size.zero),
+    );
+  }
 }
 
-class AboutDippola extends StatelessWidget {
-  const AboutDippola({Key? key}) : super(key: key);
+class Bottom2 extends StatelessWidget {
+  const Bottom2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return isMobile(context) ? MobileDetail() : DesktopDetail();
+    return isMobile(context) ? Bottom2Mobile(context) : Bottom2DesktopTab(context);
   }
 
-  Widget DesktopDetail() {
+  Widget Bottom2DesktopTab(BuildContext context) {
     return Center(
       child: Column(
         children: [
+          Container(
+            width: DeviceSize.getWidth(context)*0.8,
+            height: 1.0,
+            color: lineColor,
+          ),
+          SizedBox(height: 25.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              grey("회사명: "),
-              black("디폴라"),
-              grey("   |   사업자번호: "),
-              black("833-32-01109"),
-              checkButton()
-            ],
+            children: [black("Dippola"), grey("   |   Business Number: "), black("833-32-01109"), checkButton()],
+          ),
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [black("KIM MINJUN"), grey("   |   Address: "), black(dippolaAddress)],
           ),
           SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              grey("대표: "),
-              black("김민준"),
-              grey("   |   주소: "),
-              black("인천시 서구 가현로97번길6")
-            ],
-          ),
-          SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              grey("대표전화: "),
-              black("070-8064-7420"),
-              grey("   |   이메일: "),
-              black("dippolas@gmail.com"),
+              grey("Phone Number: "),
+              black(dippolaPhoneNumber),
+              grey("   |   Email: "),
+              black(dippolaEmail),
             ],
           ),
           SizedBox(height: 10),
@@ -185,51 +216,61 @@ class AboutDippola extends StatelessWidget {
     );
   }
 
-  Widget MobileDetail() {
+  Widget Bottom2Mobile(BuildContext context) {
     return Column(
       children: [
+        Container(
+          width: DeviceSize.getWidth(context)*0.8,
+          height: 1.0,
+          color: lineColor,
+        ),
+        SizedBox(height: 25.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            grey("회사명: "),
-            black("디폴라"),
+            black("Dippola"),
           ],
         ),
-        SizedBox(height: 5),
+        SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [grey("사업자번호: "), black("833-32-01109"), checkButton()],
+          children: [grey("Business Number: "), black("833-32-01109"), checkButton()],
         ),
-        SizedBox(height: 5),
+        SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            grey("대표: "),
-            black("김민준"),
+            black("KIM MINJUN"),
           ],
         ),
-        SizedBox(height: 5),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [grey("주소: "), black("인천시 서구 가현로97번길6")],
+        SizedBox(height: 10),
+        Container(
+          width: DeviceSize.getWidth(context)*0.95,
+          child: DeviceSize.getWidth(context) >= 466 ? Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [grey("Address: "), black(dippolaAddress)],
+          ) : Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [grey("Address: "), black(dippolaAddress)],
+          ),
         ),
-        SizedBox(height: 5),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            grey("대표전화: "),
-            black("010-3339-3988"),
-          ],
-        ),
-        SizedBox(height: 5),
+        SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            grey("이메일: "),
-            black("dippolas@gmail.com"),
+            grey("Phone: "),
+            black(dippolaPhoneNumber),
           ],
         ),
-        SizedBox(height: 5),
+        SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            grey("Email: "),
+            black(dippolaEmail),
+          ],
+        ),
+        SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -246,6 +287,7 @@ class AboutDippola extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(color: Colors.black54),
+      textAlign: TextAlign.center,
     );
   }
 
@@ -253,6 +295,7 @@ class AboutDippola extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(color: Colors.black),
+      textAlign: TextAlign.center,
     );
   }
 
@@ -277,8 +320,16 @@ class AboutDippola extends StatelessWidget {
   }
 
   static void _launchURLCheckCompany() async {
-    String _url =
-        'http://www.ftc.go.kr/bizCommPop.do?wrkr_no=4845900206';
+    String _url = 'http://www.ftc.go.kr/bizCommPop.do?wrkr_no=4845900206';
     await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
+  }
+}
+
+Future<void> _callPhoneNumber() async {
+  final pn = dippolaPhoneNumber;
+  if (await canLaunch(pn)) {
+    await launch(pn);
+  } else {
+    throw 'Could not launch $pn';
   }
 }

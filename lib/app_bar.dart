@@ -34,14 +34,14 @@ class DesktopAppBar extends StatelessWidget {
           children: [
             TextButton(
               onPressed: () {
-                if (ModalRoute.of(context)!.settings.name != '/home') {
-                  Navigator.pushNamed(context, '/home');
+                if (ModalRoute.of(context)!.settings.name != '/') {
+                  Navigator.pushNamed(context, '/');
                 }
               },
               child: Row(
                 children: [
                   Image.asset(
-                    'images/develinyicon.png',
+                    'images/main1image.png',
                     width: 60.0,
                     height: 60.0,
                   ),
@@ -60,8 +60,8 @@ class DesktopAppBar extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {
-                    if (ModalRoute.of(context)!.settings.name != '/home') {
-                      Navigator.pushNamed(context, '/home');
+                    if (ModalRoute.of(context)!.settings.name != '/') {
+                      Navigator.pushNamed(context, '/');
                     }
                   },
                   child: Text(
@@ -86,12 +86,12 @@ class DesktopAppBar extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    if (ModalRoute.of(context)!.settings.name != '/product') {
-                      Navigator.pushNamed(context, '/product');
+                    if (ModalRoute.of(context)!.settings.name != '/projects') {
+                      Navigator.pushNamed(context, '/projects');
                     }
                   },
                   child: Text(
-                    'Product',
+                    'Projects',
                     style: TextStyle(
                         color: Color.fromRGBO(5, 5, 100, 1.0),
                         fontWeight: FontWeight.bold),
@@ -144,14 +144,14 @@ class MobileAppBar extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  if (ModalRoute.of(context)!.settings.name != '/home') {
-                    Navigator.pushNamed(context, '/home');
+                  if (ModalRoute.of(context)!.settings.name != '/') {
+                    Navigator.pushNamed(context, '/');
                   }
                 },
                 child: Row(
                   children: [
                     Image.asset(
-                      'images/develinyicon.png',
+                      'images/main1image.png',
                       width: 35.0,
                       height: 35.0,
                     ),
