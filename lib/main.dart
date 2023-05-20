@@ -4,7 +4,7 @@ import 'package:dippola/page/home.dart';
 import 'package:dippola/page/projects.dart';
 import 'package:dippola/page/terms_and_conditions.dart';
 import 'package:flutter/material.dart';
-import 'package:url_strategy/url_strategy.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:dippola/page/private_policy.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -16,6 +16,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  usePathUrlStrategy();
   runApp(const MyDevWeb());
 }
 
