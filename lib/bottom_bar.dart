@@ -11,7 +11,7 @@ class BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     // return (!isMobile(context) ? DesktopBottom() : MobileBottom());
     return Column(
-      children: [Bottom1(), Bottom2()],
+      children: [Bottom1(), Bottom2(), Bottom3()],
     );
   }
 }
@@ -324,6 +324,21 @@ class Bottom2 extends StatelessWidget {
     await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
   }
 }
+
+class Bottom3 extends StatelessWidget {
+  const Bottom3({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 30.0),
+      child: Center(
+        child: Text(license, style: GoogleFonts.prompt(fontSize: 12.0)),
+      ),
+    );
+  }
+}
+
 
 Future<void> _callPhoneNumber() async {
   final pn = dippolaPhoneNumber;

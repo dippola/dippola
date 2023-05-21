@@ -16,3 +16,4 @@ var loadingColor = Color(0xffd9ddf6);
 var dippolaPhoneNumber = '+8270-8046-7420';
 var dippolaEmail = 'dippolas@gmail.com';
 var dippolaAddress = '6, Gahyeon-ro 97beon-gil, Seo-gu, Incheon, Republic of Korea';
+var license = 'All content © Dippola 2023 • All rights reserved';
