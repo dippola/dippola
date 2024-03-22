@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:dippola/page/about.dart';
 import 'package:dippola/page/contact.dart';
 import 'package:dippola/page/home.dart';
@@ -26,19 +28,20 @@ class MyDevWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Dippola',
       theme: ThemeData(primaryColor: Colors.indigo),
       initialRoute: "/",
       routes: {
-        "/": (context) => HomePage(),
-        "/about": (context) => AboutPage(),
-        "/projects": (context) => Product(),
-        "/contact": (context) => ContactPage(),
-        "/projects/relaxtour/private_policy": (context) => PrivatePolicyPage(),//1
-        "/projects/pjhouse/private_policy": (context) => PrivatePolicyPage(),//2
-        "/projects/nha/private_policy": (context) => PrivatePolicyPage(),//3
-        "/projects/solution/private_policy": (context) => PrivatePolicyPage(),//4
-        "/projects/relaxtour/terms_and_conditions": (context) => TacPage(),
+        "/": (context) => const HomePage(),
+        "/about": (context) => const AboutPage(),
+        "/projects": (context) => const Product(),
+        "/contact": (context) => const ContactPage(),
+        "/projects/relax_tour/private_policy": (context) => const PrivatePolicyPage(),//1
+        "/projects/pjhouse/private_policy": (context) => const PrivatePolicyPage(),//2
+        "/projects/nha/private_policy": (context) => const PrivatePolicyPage(),//3
+        "/projects/solution/private_policy": (context) => const PrivatePolicyPage(),//4
+        "/projects/relaxtour/terms_and_conditions": (context) => const TacPage(),
 
 
 

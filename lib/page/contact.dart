@@ -156,7 +156,7 @@ class ContactUsScreen extends StatelessWidget {
                     ],
                   ),
                   style: ElevatedButton.styleFrom(
-                      primary: Colors.indigo,
+                      backgroundColor: Colors.indigo,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0)),
                       fixedSize: Size(100, 40)),

@@ -290,7 +290,7 @@ class Home2 extends StatelessWidget {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.indigo,
+                    backgroundColor: Colors.indigo,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                   ),
                 )
@@ -342,7 +342,7 @@ class Home2 extends StatelessWidget {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.indigo,
+                    backgroundColor: Colors.indigo,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                   ),
                 )
@@ -395,7 +395,7 @@ class Home2 extends StatelessWidget {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.indigo,
+                  backgroundColor: Colors.indigo,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                 ),
               ),

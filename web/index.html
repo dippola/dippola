@@ -23,7 +23,7 @@
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Dippola">
+  <meta name="apple-mobile-web-app-title" content="dippola">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
@@ -31,111 +31,288 @@
 
   <title>dippola</title>
   <link rel="manifest" href="manifest.json">
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = null;
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div class="lds-roller">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
+<div class="lds-roller">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
   <script>
-    var serviceWorkerVersion = null;
-    var scriptLoaded = false;
-    function loadMainDartJs() {
-      if (scriptLoaded) {
-        return;
-      }
-      scriptLoaded = true;
-      var scriptTag = document.createElement('script');
-      scriptTag.src = 'main.dart.js';
-      scriptTag.type = 'application/javascript';
-      document.body.append(scriptTag);
-    }
-
-    if ('serviceWorker' in navigator) {
-      // Service workers are supported. Use them.
-      window.addEventListener('load', function () {
-        // Wait for registration to finish before dropping the <script> tag.
-        // Otherwise, the browser will load the script multiple times,
-        // potentially different versions.
-        var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
-        navigator.serviceWorker.register(serviceWorkerUrl)
-          .then((reg) => {
-            function waitForActivation(serviceWorker) {
-              serviceWorker.addEventListener('statechange', () => {
-                if (serviceWorker.state == 'activated') {
-                  console.log('Installed new service worker.');
-                  loadMainDartJs();
-                }
-              });
-            }
-            if (!reg.active && (reg.installing || reg.waiting)) {
-              // No active web worker and we have installed or are installing
-              // one for the first time. Simply wait for it to activate.
-              waitForActivation(reg.installing || reg.waiting);
-            } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
-              // When the app updates the serviceWorkerVersion changes, so we
-              // need to ask the service worker to update.
-              console.log('New service worker available.');
-              reg.update();
-              waitForActivation(reg.installing);
-            } else {
-              // Existing service worker is still good.
-              console.log('Loading app from service worker.');
-              loadMainDartJs();
-            }
+    window.addEventListener('load', function(ev) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
           });
-
-        // If service worker doesn't succeed in a reasonable amount of time,
-        // fallback to plaint <script> tag.
-        setTimeout(() => {
-          if (!scriptLoaded) {
-            console.warn(
-              'Failed to load app from service worker. Falling back to plain <script> tag.',
-            );
-            loadMainDartJs();
-          }
-        }, 4000);
+        }
       });
-    } else {
-      // Service workers not supported. Just drop the <script> tag.
-      loadMainDartJs();
-    }
+    });
   </script>
-
-<!-- firebase -->
-  <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCuUNJKUnj8BTAnXbLhCNH3zqfy5ucDLOg",
-    authDomain: "dippola-web.firebaseapp.com",
-    projectId: "dippola-web",
-    storageBucket: "dippola-web.appspot.com",
-    messagingSenderId: "276213578675",
-    appId: "1:276213578675:web:8871f9b21e0b8f3870e9c6",
-    measurementId: "G-TSLYD7J2FD"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-<!-- firebase -->
 </body>
 </html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    &lt;!&ndash;-->
+<!--      If you are serving your web app in a path other than the root, change the-->
+<!--      href value below to reflect the base path you are serving from.-->
+
+<!--      The path provided below has to start and end with a slash "/" in order for-->
+<!--      it to work correctly.-->
+
+<!--      For more details:-->
+<!--      * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base-->
+
+<!--      This is a placeholder for base href that will be replaced by the value of-->
+<!--      the `&#45;&#45;base-href` argument provided to `flutter build`.-->
+<!--    &ndash;&gt;-->
+<!--    <base href="$FLUTTER_BASE_HREF">-->
+
+<!--    <meta charset="UTF-8">-->
+<!--    <meta content="IE=Edge" http-equiv="X-UA-Compatible">-->
+<!--    <meta name="description" content="Developing user-friendly and value-creating software. Share your ideas. Feel free to inquire anytime.">-->
+
+<!--    &lt;!&ndash; iOS meta tags & icons &ndash;&gt;-->
+<!--    <meta name="apple-mobile-web-app-capable" content="yes">-->
+<!--    <meta name="apple-mobile-web-app-status-bar-style" content="black">-->
+<!--    <meta name="apple-mobile-web-app-title" content="Dippola">-->
+<!--    <link rel="apple-touch-icon" href="icons/Icon-192.png">-->
+
+<!--    &lt;!&ndash; Favicon &ndash;&gt;-->
+<!--    <link rel="icon" type="image/png" href="favicon.png"/>-->
+
+<!--    <title>dippola</title>-->
+<!--    <link rel="manifest" href="manifest.json">-->
+<!--    <script>-->
+<!--        //from pj-->
+<!--        // The value below is injected by flutter build, do not touch.-->
+<!--        var serviceWorkerVersion = null;-->
+<!--    </script>-->
+<!--    <script src="flutter.js" defer></script>&lt;!&ndash; from pj &ndash;&gt;-->
+<!--    <title>dippola</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="styles.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="lds-roller">-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--    <div></div>-->
+<!--</div>-->
+<!--&lt;!&ndash; This script installs service_worker.js to provide PWA functionality to-->
+<!--     application. For more information, see:-->
+<!--     https://developers.google.com/web/fundamentals/primers/service-workers &ndash;&gt;-->
+<!--&lt;!&ndash;  <script>&ndash;&gt;-->
+<!--&lt;!&ndash;    var serviceWorkerVersion = null;&ndash;&gt;-->
+<!--&lt;!&ndash;    var scriptLoaded = false;&ndash;&gt;-->
+<!--&lt;!&ndash;    function loadMainDartJs() {&ndash;&gt;-->
+<!--&lt;!&ndash;      if (scriptLoaded) {&ndash;&gt;-->
+<!--&lt;!&ndash;        return;&ndash;&gt;-->
+<!--&lt;!&ndash;      }&ndash;&gt;-->
+<!--&lt;!&ndash;      scriptLoaded = true;&ndash;&gt;-->
+<!--&lt;!&ndash;      var scriptTag = document.createElement('script');&ndash;&gt;-->
+<!--&lt;!&ndash;      scriptTag.src = 'main.dart.js';&ndash;&gt;-->
+<!--&lt;!&ndash;      scriptTag.type = 'application/javascript';&ndash;&gt;-->
+<!--&lt;!&ndash;      document.body.append(scriptTag);&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+
+<!--&lt;!&ndash;    if ('serviceWorker' in navigator) {&ndash;&gt;-->
+<!--&lt;!&ndash;      // Service workers are supported. Use them.&ndash;&gt;-->
+<!--&lt;!&ndash;      window.addEventListener('load', function () {&ndash;&gt;-->
+<!--&lt;!&ndash;        // Wait for registration to finish before dropping the <script> tag.&ndash;&gt;-->
+<!--&lt;!&ndash;        // Otherwise, the browser will load the script multiple times,&ndash;&gt;-->
+<!--&lt;!&ndash;        // potentially different versions.&ndash;&gt;-->
+<!--&lt;!&ndash;        var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;&ndash;&gt;-->
+<!--&lt;!&ndash;        navigator.serviceWorker.register(serviceWorkerUrl)&ndash;&gt;-->
+<!--&lt;!&ndash;          .then((reg) => {&ndash;&gt;-->
+<!--&lt;!&ndash;            function waitForActivation(serviceWorker) {&ndash;&gt;-->
+<!--&lt;!&ndash;              serviceWorker.addEventListener('statechange', () => {&ndash;&gt;-->
+<!--&lt;!&ndash;                if (serviceWorker.state == 'activated') {&ndash;&gt;-->
+<!--&lt;!&ndash;                  console.log('Installed new service worker.');&ndash;&gt;-->
+<!--&lt;!&ndash;                  loadMainDartJs();&ndash;&gt;-->
+<!--&lt;!&ndash;                }&ndash;&gt;-->
+<!--&lt;!&ndash;              });&ndash;&gt;-->
+<!--&lt;!&ndash;            }&ndash;&gt;-->
+<!--&lt;!&ndash;            if (!reg.active && (reg.installing || reg.waiting)) {&ndash;&gt;-->
+<!--&lt;!&ndash;              // No active web worker and we have installed or are installing&ndash;&gt;-->
+<!--&lt;!&ndash;              // one for the first time. Simply wait for it to activate.&ndash;&gt;-->
+<!--&lt;!&ndash;              waitForActivation(reg.installing || reg.waiting);&ndash;&gt;-->
+<!--&lt;!&ndash;            } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {&ndash;&gt;-->
+<!--&lt;!&ndash;              // When the app updates the serviceWorkerVersion changes, so we&ndash;&gt;-->
+<!--&lt;!&ndash;              // need to ask the service worker to update.&ndash;&gt;-->
+<!--&lt;!&ndash;              console.log('New service worker available.');&ndash;&gt;-->
+<!--&lt;!&ndash;              reg.update();&ndash;&gt;-->
+<!--&lt;!&ndash;              waitForActivation(reg.installing);&ndash;&gt;-->
+<!--&lt;!&ndash;            } else {&ndash;&gt;-->
+<!--&lt;!&ndash;              // Existing service worker is still good.&ndash;&gt;-->
+<!--&lt;!&ndash;              console.log('Loading app from service worker.');&ndash;&gt;-->
+<!--&lt;!&ndash;              loadMainDartJs();&ndash;&gt;-->
+<!--&lt;!&ndash;            }&ndash;&gt;-->
+<!--&lt;!&ndash;          });&ndash;&gt;-->
+
+<!--&lt;!&ndash;        // If service worker doesn't succeed in a reasonable amount of time,&ndash;&gt;-->
+<!--&lt;!&ndash;        // fallback to plaint <script> tag.&ndash;&gt;-->
+<!--&lt;!&ndash;        setTimeout(() => {&ndash;&gt;-->
+<!--&lt;!&ndash;          if (!scriptLoaded) {&ndash;&gt;-->
+<!--&lt;!&ndash;            console.warn(&ndash;&gt;-->
+<!--&lt;!&ndash;              'Failed to load app from service worker. Falling back to plain <script> tag.',&ndash;&gt;-->
+<!--&lt;!&ndash;            );&ndash;&gt;-->
+<!--&lt;!&ndash;            loadMainDartJs();&ndash;&gt;-->
+<!--&lt;!&ndash;          }&ndash;&gt;-->
+<!--&lt;!&ndash;        }, 4000);&ndash;&gt;-->
+<!--&lt;!&ndash;      });&ndash;&gt;-->
+<!--&lt;!&ndash;    } else {&ndash;&gt;-->
+<!--&lt;!&ndash;      // Service workers not supported. Just drop the <script> tag.&ndash;&gt;-->
+<!--&lt;!&ndash;      loadMainDartJs();&ndash;&gt;-->
+<!--&lt;!&ndash;    }&ndash;&gt;-->
+<!--&lt;!&ndash;  </script>&ndash;&gt;-->
+
+<!--<script>-->
+<!--    window.addEventListener('load', function(ev) {-->
+<!--      // Download main.dart.js-->
+<!--      _flutter.loader.loadEntrypoint({-->
+<!--      entrypointUrl: window.location.origin + "/main.dart.js",-->
+<!--        serviceWorker: {-->
+<!--          serviceWorkerVersion: serviceWorkerVersion,-->
+<!--          serviceWorkerUrl: window.location.origin + "/flutter_service_worker.js?v=",-->
+<!--        }-->
+<!--      }).then(function(engineInitializer) {-->
+<!--        return engineInitializer.initializeEngine();-->
+<!--      }).then(function(appRunner) {-->
+<!--        return appRunner.runApp();-->
+<!--      });-->
+<!--    });-->
+
+<!--</script>-->
+
+<!--&lt;!&ndash; firebase &ndash;&gt;-->
+<!--&lt;!&ndash;<script type="module">&ndash;&gt;-->
+<!--&lt;!&ndash;    // Import the functions you need from the SDKs you need&ndash;&gt;-->
+<!--&lt;!&ndash;    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js";&ndash;&gt;-->
+<!--&lt;!&ndash;    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.8/firebase-analytics.js";&ndash;&gt;-->
+<!--&lt;!&ndash;    // TODO: Add SDKs for Firebase products that you want to use&ndash;&gt;-->
+<!--&lt;!&ndash;    // https://firebase.google.com/docs/web/setup#available-libraries&ndash;&gt;-->
+
+<!--&lt;!&ndash;    // Your web app's Firebase configuration&ndash;&gt;-->
+<!--&lt;!&ndash;    // For Firebase JS SDK v7.20.0 and later, measurementId is optional&ndash;&gt;-->
+<!--&lt;!&ndash;    const firebaseConfig = {&ndash;&gt;-->
+<!--&lt;!&ndash;      apiKey: "AIzaSyCuUNJKUnj8BTAnXbLhCNH3zqfy5ucDLOg",&ndash;&gt;-->
+<!--&lt;!&ndash;      authDomain: "dippola-web.firebaseapp.com",&ndash;&gt;-->
+<!--&lt;!&ndash;      projectId: "dippola-web",&ndash;&gt;-->
+<!--&lt;!&ndash;      storageBucket: "dippola-web.appspot.com",&ndash;&gt;-->
+<!--&lt;!&ndash;      messagingSenderId: "276213578675",&ndash;&gt;-->
+<!--&lt;!&ndash;      appId: "1:276213578675:web:8871f9b21e0b8f3870e9c6",&ndash;&gt;-->
+<!--&lt;!&ndash;      measurementId: "G-TSLYD7J2FD"&ndash;&gt;-->
+<!--&lt;!&ndash;    };&ndash;&gt;-->
+
+<!--&lt;!&ndash;    // Initialize Firebase&ndash;&gt;-->
+<!--&lt;!&ndash;    const app = initializeApp(firebaseConfig);&ndash;&gt;-->
+<!--&lt;!&ndash;    const analytics = getAnalytics(app);&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+<!--&lt;!&ndash; firebase &ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--  &lt;!&ndash;-->
+<!--    If you are serving your web app in a path other than the root, change the-->
+<!--    href value below to reflect the base path you are serving from.-->
+
+<!--    The path provided below has to start and end with a slash "/" in order for-->
+<!--    it to work correctly.-->
+
+<!--    For more details:-->
+<!--    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base-->
+
+<!--    This is a placeholder for base href that will be replaced by the value of-->
+<!--    the `&#45;&#45;base-href` argument provided to `flutter build`.-->
+<!--  &ndash;&gt;-->
+<!--  <base href="/flutter_app/">-->
+
+<!--  &lt;!&ndash;og&ndash;&gt;-->
+<!--  <meta property="og:url" content="http://dippola.com">-->
+<!--  &lt;!&ndash;    <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/pjhouseweb.appspot.com/o/og_img.jpg?alt=media&token=72c08bb4-3abc-42ff-a79a-6dead286d9c3"/>&ndash;&gt;-->
+<!--  &lt;!&ndash;    <meta property="og:type" content="website">&ndash;&gt;-->
+<!--  &lt;!&ndash;    <meta property="og:title" content="PJ House บ้านเดี่ยวสระบุรี "/>&ndash;&gt;-->
+<!--  &lt;!&ndash;    <meta property="og:description" content="ขอแนะนำ PJ House บ้านสวยสไตล์คันทรี่สำหรับขาย"/>&ndash;&gt;-->
+
+<!--  <meta charset="UTF-8">-->
+<!--  <meta content="IE=Edge" http-equiv="X-UA-Compatible">-->
+<!--  <meta name="description" content="Developing user-friendly and value-creating software. Share your ideas. Feel free to inquire anytime.">-->
+
+<!--  &lt;!&ndash; iOS meta tags & icons &ndash;&gt;-->
+<!--  <meta name="apple-mobile-web-app-capable" content="yes">-->
+<!--  <meta name="apple-mobile-web-app-status-bar-style" content="black">-->
+<!--  <meta name="apple-mobile-web-app-title" content="Dippola">-->
+<!--  <link rel="apple-touch-icon" href="icons/Icon-192.png">-->
+
+<!--  &lt;!&ndash; Favicon &ndash;&gt;-->
+<!--  <link rel="icon" type="image/png" href="favicon.png"/>-->
+
+<!--  <title>dippola</title>-->
+<!--  <link rel="manifest" href="manifest.json">-->
+
+<!--  <script>-->
+<!--    // The value below is injected by flutter build, do not touch.-->
+<!--    var serviceWorkerVersion = null;-->
+
+<!--  </script>-->
+<!--  &lt;!&ndash; This script adds the flutter initialization JS code &ndash;&gt;-->
+<!--  <script src="flutter.js" defer></script>-->
+<!--  <link rel="stylesheet" type="text/css" href="styles.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="lds-roller">-->
+<!--  <div></div>-->
+<!--  <div></div>-->
+<!--  <div></div>-->
+<!--  <div></div>-->
+<!--  <div></div>-->
+<!--  <div></div>-->
+<!--  <div></div>-->
+<!--  <div></div>-->
+<!--</div>-->
+<!--<script>-->
+<!--  window.addEventListener('load', function(ev) {-->
+<!--    // Download main.dart.js-->
+<!--    _flutter.loader.loadEntrypoint({-->
+<!--      serviceWorker: {-->
+<!--        serviceWorkerVersion: serviceWorkerVersion,-->
+<!--      }-->
+<!--    }).then(function(engineInitializer) {-->
+<!--      return engineInitializer.initializeEngine();-->
+<!--    }).then(function(appRunner) {-->
+<!--      return appRunner.runApp();-->
+<!--    });-->
+<!--  });-->
+
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

@@ -313,7 +313,7 @@ class Bottom2 extends StatelessWidget {
             "사업자등록확인",
             style: TextStyle(fontSize: 11.0),
           ),
-          style: ElevatedButton.styleFrom(primary: Colors.black26),
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.black26),
         ),
       ),
     );
