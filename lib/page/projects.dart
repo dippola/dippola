@@ -481,7 +481,7 @@ class BoxBottomIcons extends StatelessWidget {
 
   String getRouteName(int id) {
     if (id == 1) {
-      return 'relax_tour';
+      return 'relaxtour';
     } else if (id == 2) {
       return 'pjhouse';
     } else if (id == 3) {
