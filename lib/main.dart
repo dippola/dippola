@@ -37,7 +37,7 @@ class MyDevWeb extends StatelessWidget {
         "/about": (context) => const AboutPage(),
         "/projects": (context) => const Product(),
         "/contact": (context) => const ContactPage(),
-        "/projects/relax_tour/private_policy": (context) => const PrivatePolicyPage(),//1
+        "/projects/relaxtour/private_policy": (context) => const PrivatePolicyPage(),//1
         "/projects/pjhouse/private_policy": (context) => const PrivatePolicyPage(),//2
         "/projects/nha/private_policy": (context) => const PrivatePolicyPage(),//3
         "/projects/solution/private_policy": (context) => const PrivatePolicyPage(),//4
