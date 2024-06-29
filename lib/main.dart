@@ -42,6 +42,7 @@ class MyDevWeb extends StatelessWidget {
         "/projects/nha/private_policy": (context) => const PrivatePolicyPage(),//3
         "/projects/solution/private_policy": (context) => const PrivatePolicyPage(),//4
         "/projects/relaxtour/terms_and_conditions": (context) => const TacPage(),
+        "/projects/onscreentranslator/private_policy": (context) => const PrivatePolicyPage()
 
 
 
