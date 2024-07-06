@@ -5,6 +5,7 @@ import 'package:dippola/page/contact.dart';
 import 'package:dippola/page/home.dart';
 import 'package:dippola/page/projects.dart';
 import 'package:dippola/page/terms_and_conditions.dart';
+import 'package:dippola/page/test_video.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -42,7 +43,8 @@ class MyDevWeb extends StatelessWidget {
         "/projects/nha/private_policy": (context) => const PrivatePolicyPage(),//3
         "/projects/solution/private_policy": (context) => const PrivatePolicyPage(),//4
         "/projects/relaxtour/terms_and_conditions": (context) => const TacPage(),
-        "/projects/onscreentranslator/private_policy": (context) => const PrivatePolicyPage()
+        "/projects/onscreentranslator/private_policy": (context) => const PrivatePolicyPage(),
+        "/projects/onscreentranslator/test_video": (context) => const TestVideo()
 
 
 
