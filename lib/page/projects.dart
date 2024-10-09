@@ -481,14 +481,16 @@ class BoxBottomIcons extends StatelessWidget {
 
   String getRouteName(int id) {
     if (id == 1) {
-      return 'relaxtour';
+      return 'onscreentranslator';
     } else if (id == 2) {
-      return 'pjhouse';
+      return 'relaxtour';
     } else if (id == 3) {
-      return 'nha';
+      return 'pjhouse';
     } else if (id == 4) {
+      return 'nha';
+    } else if (id==5) {
       return 'solution';
-    } else {
+    }else {
       return '';
     }
   }
