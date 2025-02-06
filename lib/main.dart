@@ -3,6 +3,7 @@ import 'dart:html';
 import 'package:dippola/page/about.dart';
 import 'package:dippola/page/contact.dart';
 import 'package:dippola/page/home.dart';
+import 'package:dippola/page/ostranslator_delete_data.dart';
 import 'package:dippola/page/projects.dart';
 import 'package:dippola/page/terms_and_conditions.dart';
 import 'package:dippola/page/test_video.dart';
@@ -44,7 +45,8 @@ class MyDevWeb extends StatelessWidget {
         "/projects/solution/private_policy": (context) => const PrivatePolicyPage(),//4
         "/projects/relaxtour/terms_and_conditions": (context) => const TacPage(),
         "/projects/onscreentranslator/private_policy": (context) => const PrivatePolicyPage(),
-        "/projects/onscreentranslator/test_video": (context) => const TestVideo()
+        "/projects/onscreentranslator/test_video": (context) => const TestVideo(),
+        "/projects/onscreentranslator/delete_data": (context) => const DeleteDataPage(),
 
 
 
